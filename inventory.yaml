@@ -1,0 +1,14 @@
+all:
+  hosts:
+    server1:
+      ansible_user: yasir
+      ansible_host: 172.16.150.40
+      ansible_become: yes
+      ansible_become_method: sudo
+      ansible_become_pass: asd123.
+    server2:
+      ansible_user: yasir
+      ansible_host: 172.16.150.236
+      ansible_become: yes
+      ansible_become_method: sudo
+      ansible_become_pass: asd123.
