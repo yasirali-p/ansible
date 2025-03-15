@@ -1,0 +1,10 @@
+- name:
+  hosts: server2
+  tasks:
+    - name: multiple debug
+      debug:
+        msg: |
+          "the hostname is {{ansible_hostname}}"
+          "the ip {{ansible_host}}"
+          "the processor {{ansible_processor_cores}}"
+          "the system {{ansible_system}}"
