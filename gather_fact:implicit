@@ -1,0 +1,6 @@
+- name: setup implicit
+  hosts: server1
+  tasks:
+    - name: debug
+      debug:
+        msg: "the host is {{ansible_host}}"
