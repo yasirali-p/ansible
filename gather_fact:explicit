@@ -1,0 +1,7 @@
+- name:
+  hosts: server2
+  gather_facts: yes
+  tasks:
+    - name:
+      debug:
+        msg: "The hostname is {{ansible_hostname}}"
