@@ -4,8 +4,7 @@
   tasks:
     - name: Copy inance.zip from control machine to remote machine
       ansible.builtin.copy:
-        src: /home/synnefo/inance.zip    # Path to the local finance.zip file on the control machine
-        dest: /home/yasir/  # Destination path on the remote machine
-        owner: yasir                      # Set owner for the copied file
-        group: yasir                      # Set group for the copied file
-
+        src: /home/synnefo/inance.zip    
+        dest: /home/yasir/  
+        owner: yasir                             
+        group: yasir                      
