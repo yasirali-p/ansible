@@ -1,0 +1,17 @@
+---
+- name: Install and start NGINX
+  hosts: all
+  become: yes  # Use sudo to run commands as root
+  become_user: root
+
+  tasks:
+    - name: Install NGINX
+      dnf:
+        name: nginx
+        state: present
+
+    - name: Ensure NGINX service is started and enabled
+      service:
+        name: nginx
+        state: started
+        enabled: yes
