@@ -1,0 +1,10 @@
+---
+- name: Create a file and set permissions to 500
+  hosts: all
+  tasks:
+    - name: Create the file rhc.txt and set permissions to 500
+      ansible.builtin.file:
+        path: /home/yasir/rhc.txt
+        state: touch
+        mode: '0500'
+
