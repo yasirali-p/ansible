@@ -1,0 +1,16 @@
+---
+- name: Example of Ansible playbook with variables
+  hosts: all
+  become: yes
+
+  vars:
+    up: "uptime"  # Variable storing the command to run
+
+  tasks:
+    - name: Get uptime
+      command: "{{ up }}"  # Run the uptime command stored in 'up'
+      register: time  # Capture the output in the 'time' variable
+
+    - name: Print uptime
+      debug:
+        msg: "{{ time.stdout }}"  # Print the output of the uptime command
