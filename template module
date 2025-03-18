@@ -1,0 +1,15 @@
+vim j2 file
+{ansible_distribution_version}}
+{{ansible_processor}}
+{{ansible_kernel}}
+{{ansible_facts['processor_cores']}}
+{{ansible_facts['os_family']}}
+
+
+- name: Copy template file to server1
+  hosts: server1
+  tasks:
+    - name: Copy the templte
+      template:
+        src: new.j2
+        dest: /home/yasir/new_file.txt
