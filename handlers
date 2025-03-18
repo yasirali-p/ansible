@@ -9,7 +9,7 @@
     service:
       name: nginx
       enabled: yes
-      state: start
+      state: started
   - name: change cf of nginx
     template:
       src: nginx.conf.j2
@@ -19,4 +19,5 @@
   - name: reload nginx
     service:
     name: nginx
-    state: restart
+    state: restarted
+~                     
