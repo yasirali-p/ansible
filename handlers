@@ -14,7 +14,7 @@
 
     - name: change config of nginx
       template:
-        src: nginx.conf.j2
+        src: nginx1.conf.j2
         dest: /etc/nginx/conf.d/nginx1.conf
       notify: Reload nginx
 
