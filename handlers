@@ -5,18 +5,21 @@
       dnf:
         name: nginx
         state: present
+
     - name: start & enable nginx
       service:
         name: nginx
         enabled: yes
         state: started
+
     - name: change config of nginx
       template:
         src: nginx.conf.j2
-        dest: /etc/nginx/conf.d/nginx.conf
-      notify: reload nginx
+        dest: /etc/nginx/conf.d/nginx1.conf
+      notify: Reload nginx
+
   handlers:
-    - name: reload nginx
+    - name: Reload nginx
       service:
         name: nginx
-        state: reloaded   
+        state: reloaded
