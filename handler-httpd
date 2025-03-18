@@ -1,0 +1,25 @@
+- name: handler apache HTTPD
+  hosts: server1
+  tasks:
+    - name: installation apache HTTPD
+      dnf:
+        name: httpd
+        state: present
+
+    - name: start & enable apache httpd
+      service:
+        name: httpd
+        enabled: yes
+        state: started
+
+    - name: change config of apache
+      template:
+        src: http.conf.j2
+        dest: /etc/httpd/conf.d/httpd.conf
+      notify: Reload apache
+
+  handlers:
+    - name: Reload apache
+      service:
+        name: httpd
+        state: reloaded
