@@ -27,11 +27,11 @@ all:
   children:
     group1:
       hosts:
-        target1:
-        target2:
+        server1:
+        server2:
     group2:
       hosts:
-        target3:
+        server3:
     group3:
       children:
         group1:
