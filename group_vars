@@ -1,0 +1,16 @@
+- name: hostvars and groupvars
+  hosts: group2
+  tasks:
+  - name: installing package
+    apt:
+      name: '{{web_package}}
+      state: present
+  - name: enabling and starting 
+    service:
+      name: "{{web_service}}"
+      enabled: yes
+      state: started
+  - name: copy files
+    copy:
+      src: index.html
+      dest: "{{web_path}}
