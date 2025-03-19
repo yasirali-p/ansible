@@ -13,4 +13,4 @@
   - name: copy files
     copy:
       src: index.html
-      dest: "{{web_path}}
+      dest: "{{web_path}}"
