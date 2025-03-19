@@ -24,16 +24,20 @@ all:
       ansible_become: yes
       ansible_become_method: sudo
      ansible_become_pass: asd123.
-  children:
-    group1:
-      hosts:
-        server1:
-        server2:
-    group2:
-      hosts:
-        server3:
-    group3:
-      children:
-        group1:
-        group2:
-~      
+ children:
+   group1:
+     hosts:
+       server1:
+       server2:
+   group2:
+     hosts:
+       server3:
+   group3:
+     hosts:
+       server4:
+   group4:
+     children:
+       group1:
+       group2: 
+       group4:
+
