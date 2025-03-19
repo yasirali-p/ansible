@@ -2,15 +2,16 @@
   hosts: server2
   tasks:
   - name: installing package
-    dnf:
-      name: '{{web_package}}
+    ansible.builtin.dnf:
+      name: "{{web_package}}"
       state: present
-  - name: enabling and starting 
-    service:
+  - name: enabling and starting
+    ansible.builtin.service:
       name: "{{web_service}}"
       enabled: yes
       state: started
   - name: copy files
-    copy:
+    ansible.builtin.copy:
       src: index.html
       dest: "{{web_path}}"
+
