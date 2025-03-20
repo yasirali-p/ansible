@@ -1,0 +1,4 @@
+- name: executing nginxroles
+  hosts: server1
+  roles:
+    - rolenginx
