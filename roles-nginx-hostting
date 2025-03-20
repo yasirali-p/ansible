@@ -1,0 +1,41 @@
+---
+# tasks file for rolenginx
+
+- name: Installing package
+  dnf:
+    name: "{{ package }}"
+    state: present
+
+- name: Enabling & starting service
+  service:
+    name: "{{ service }}"
+    enabled: yes
+    state: started
+
+- name: Copying files to the destination
+  copy:
+    src: files2
+    dest: /home/yasir
+
+- name: Configuring firewall to allow nginx
+  ansible.builtin.firewalld:
+    service: http
+    state: enabled
+    permanent: true
+
+- name: Restarting nginx service
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+
+- name: Applying template
+  template:
+    src: index.html.j2
+    dest: "{{ path }}/index.html"
+  notify: restarted
+
+- name: Restarting service
+  service:
+    name: "{{ service }}"
+    state: restarted
+  when: service is defined
