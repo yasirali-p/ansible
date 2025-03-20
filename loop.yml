@@ -1,0 +1,12 @@
+- name: setting list
+  hosts: server2
+  tasks:
+    - name: installing packages
+      dnf:
+        name: "{{item}}"
+        state: present
+      loop:
+      - chrony
+      - nfs-utils
+      - vim
+      - tree
