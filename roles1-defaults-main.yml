@@ -1,0 +1,5 @@
+---
+# defaults file for rolenginx
+package: nginx
+service: nginx
+path: /usr/share/nginx/html
